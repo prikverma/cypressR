@@ -18,7 +18,7 @@ describe("my first test suite", function () {
           cy.wrap($el.find("button")).click();
         }
       });
-
+    //
     cy.get("img[alt='Cart']").click();
     cy.contains("PROCEED TO CHECKOUT").click();
     cy.contains("Place Order").click();
