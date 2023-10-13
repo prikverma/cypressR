@@ -1,7 +1,7 @@
 /// <reference types="Cypress"/>
 
 describe("my first test suite", function () {
-  it("My first test case", function () {
+  it("Adding Vegetables to the cart and checkout and validate message", function () {
     cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/");
     cy.get(".search-keyword").click().type("ca");
 
