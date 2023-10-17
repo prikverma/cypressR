@@ -17,7 +17,7 @@ describe("Parameterizing Test Data", function () {
     // Requirment: Need to select 2 items or more and add to the cart and checkout we use costom command code here and use parametirized data from fixtures file.
     // productName // we have used foreach here
     this.data.productName.forEach(($el) => {
-      cy.selectProduct($el);
+      cy.selectProduct($el); // this is a custom command in commands.js
     });
     cy.get("#navbarResponsive > .navbar-nav > .nav-item > .nav-link").click();
     cy.get("button.btn.btn-success").click();

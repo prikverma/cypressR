@@ -10,8 +10,7 @@ describe(" Checkbox suite", function () {
     //compairing Alert message on popup
     // below code is for handling alert
     cy.on("window:alert", (str) => {
-      expect(str).to.equal(
-        "Hello , share this practice page and share your knowledge"
+      expect(str).to.equal("Hello , share this practice page and share your knowledge"
       );
     });
     // // below code is for handling window event confirm
