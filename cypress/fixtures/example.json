@@ -1,5 +1,6 @@
 {
   "name": "Prikshit",
   "gender": "Male",
-  "productName": ["Blackberry", "Nokia Edge", "Samsung Note 8"]
+  "productName": ["Blackberry", "Nokia Edge", "Samsung Note 8"],
+  "password": "prik123"
 }
