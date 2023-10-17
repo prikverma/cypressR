@@ -1,6 +1,8 @@
 /// <reference types="Cypress" />
 import HomePage from "../PageObjects/HomePage.js";
 import ShopPage from "../PageObjects/ShopPage.js";
+import CheckoutPage from "../PageObjects/CheckoutPage.js";
+import dropdownPage from "../PageObjects/dropdownPage.js";
 
 describe("Spec Validation POM", function () {
 
@@ -42,28 +44,23 @@ describe("Spec Validation POM", function () {
     // Now select 3 products and add to the cart I am using custom commands define in support/commands.js
     this.data.productName.forEach(el => {
 
-      cy.selectProduct(el)
+      cy.selectProduct(el) // Custom command
 
     });
     // click on checkout page
     shopPage.btnCheckout().click()
-    cy.get(':nth-child(5) > :nth-child(5) > .btn').click()
+    const checkPage = new CheckoutPage()
+    // click checkout on checkout pages
+    checkPage.btnCheckout2()
+    const dropPage = new dropdownPage()
     // Validating dynamic dropdown
-    cy.get("#country").type("In")
-    cy.wait(5000)
-    cy.get("div [class='suggestions'] >ul>li>a").each(($el) => {
-      if ($el.text() === "India") {
-        cy.wrap($el).click()
-      }
-    })
-    cy.get("#checkbox2").check({ force: true })
-    cy.get(" input.btn.btn-success.btn-lg").click()
-    cy.contains(" Thank you! Your order will be delivered in next few weeks :-).")
-
-
+    dropPage.getDropdown()
+    cy.wait(3000)
+    dropPage.getDropdownList()
+    dropPage.getCheckbox().check({ force: true })
+    // click on purchase button
+    dropPage.btnPurchase().click()
+    dropPage.popupSuccess()
   });
-
-
-
 
 });
