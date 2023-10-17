@@ -1,5 +1,5 @@
 class ShopPage {
-    productTitle = ".card-title"
+    productTitle = " h4.card-title"
     addToCart = "button.btn.btn-info"
     checkout = "a.nav-link.btn.btn-primary"
 
