@@ -1,5 +1,6 @@
 /// <reference types="Cypress" />
-import { Homepage } from "../PageObjects/Homepage.js";
+import HomePage from "../PageObjects/HomePage.js";
+
 describe("Spec Validation POM", function () {
   before("Get data stored from fixtures folder", function () {
     cy.fixture("example.json").then((data) => {
@@ -8,7 +9,8 @@ describe("Spec Validation POM", function () {
   });
 
   it("Validation Test Script", function () {
-    const homePageData = new Homepage();
+    cy.visit("https://rahulshettyacademy.com/angularpractice/")
+    const homePageData = new HomePage();
     homePageData.getName(this.data.name);
   });
 });

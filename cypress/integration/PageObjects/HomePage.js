@@ -1,5 +1,5 @@
-class Homepage {
-  enterName = ".form-control.ng-pristine.ng-invalid.ng-touched";
+class HomePage {
+  enterName = "input[name='name']:nth-child(2)";
   enterEmail = "input[name='email']";
   enterPassword = "#exampleInputPassword1";
   selectGender = "exampleFormControlSelect1";
@@ -18,6 +18,7 @@ class Homepage {
   getGender() {
     return cy.get(this.selectGender);
   }
+
   selectDOB() {
     return cy.get(this.enterDOB);
   }
@@ -26,4 +27,4 @@ class Homepage {
     return cy.get(this.enterTwoWayBinding);
   }
 }
-export default Homepage;
+export default HomePage;
