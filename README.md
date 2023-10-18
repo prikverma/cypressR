@@ -1,3 +1,3 @@
 # cypressRevise
 
-# This is revision of Cypress Automation By Rahul shetty
+# This is practice of Cypress Automation(END-TO-END Testing)
