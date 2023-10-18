@@ -19,7 +19,7 @@ class dropdownPage {
     }
 
     popupSuccess() {
-        return cy.contains(" Thank you! Your order will be delivered in next few weeks :-).")
+        return cy.contains("Thank you! Your order will be delivered in next few weeks :-).")
 
     }
 
