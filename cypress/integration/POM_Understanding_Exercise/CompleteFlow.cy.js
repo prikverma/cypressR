@@ -48,7 +48,8 @@ describe("Spec Validation POM", function () {
 
     });
     // click on checkout page
-    shopPage.btnCheckout().click()
+    shopPage.btnCheckout().click().debug()
+
     const checkPage = new CheckoutPage()
     // click checkout on checkout pages
     checkPage.btnCheckout2()
@@ -60,7 +61,12 @@ describe("Spec Validation POM", function () {
     dropPage.getCheckbox().check({ force: true })
     // click on purchase button
     dropPage.btnPurchase().click()
-    dropPage.popupSuccess()
+    // there is extra spaces in this element so should('have.text',text) will not work
+    // so  I used below chai accertion expect().to.be.true
+    dropPage.popupSuccess().then(function (element) {
+      const actualText = element.text()
+      expect(actualText.includes("Success")).to.be.true
+    })
   });
 
 });
