@@ -13,7 +13,8 @@ describe("Spec Validation POM", function () {
   });
 
   it("Validation for homepage", function () {
-    cy.visit("https://rahulshettyacademy.com/angularpractice/")
+    // calling base url from env in cypress.config
+    cy.visit(Cypress.env('url') + "/angularpractice/ ")
 
     const homePageData = new HomePage();
     // enter name in the box
@@ -47,12 +48,38 @@ describe("Spec Validation POM", function () {
       cy.selectProduct(el) // Custom command
 
     });
+    shopPage.btnCheckout().click()
+    // compare price with total validate
+
+    var sum = 0;
+
+    shopPage.productPrice().each((price) => {
+      const priceText = price.text()
+      var res = priceText.split(" ")
+      res = res[1].trim()
+      sum = Number(sum) + Number(res)
+
+    }).then(function () {
+
+      cy.log(sum)
+
+    })
+
+    shopPage.totalPrice().then(function (el) {
+      var TotalPriceText = el.text()
+      var actualTotalPrice = TotalPriceText.split(" ")
+      actualTotalPrice = actualTotalPrice[1].trim()
+      cy.log(actualTotalPrice)
+      expect(Number(actualTotalPrice)).to.equal(sum)
+    })
+
     // click on checkout page
-    shopPage.btnCheckout().click().debug()
+
 
     const checkPage = new CheckoutPage()
     // click checkout on checkout pages
     checkPage.btnCheckout2()
+
     const dropPage = new dropdownPage()
     // Validating dynamic dropdown
     dropPage.getDropdown()
