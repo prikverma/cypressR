@@ -1,3 +1,3 @@
 # cypressRevise
 
-# This is practice of Cypress Automation(END-TO-END Testing)
+#  Let's practice Cypress Automation(END-TO-END Testing)
