@@ -1,10 +1,11 @@
 /// <reference types="Cypress" />
-import HomePage from "../PageObjects/HomePage.js";
-import ShopPage from "../PageObjects/ShopPage.js";
-import CheckoutPage from "../PageObjects/CheckoutPage.js";
-import dropdownPage from "../PageObjects/dropdownPage.js";
+import HomePage from "../../support/PageObjectsClass/HomePage.js";
+import ShopPage from "../../support/PageObjectsClass/ShopPage.js";
+import CheckoutPage from "../../support/PageObjectsClass/CheckoutPage.js";
+import dropdownPage from "../../support/PageObjectsClass/dropdownPage.js";
 
 describe("Spec Validation POM", function () {
+
 
   before("Get data stored from fixtures folder", function () {
     cy.fixture("example.json").then((data) => {
