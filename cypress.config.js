@@ -28,7 +28,7 @@ module.exports = defineConfig({
     //   extensions: [".js", ".jsx", ".ts", ".tsx"],
     // },
     // specPattern: "cypress/integration/**/*.cy.{js,jsx,ts,tsx}",
-    specPattern: "cypress/integration/BDD/**/*.feature",
+    specPattern: "cypress/integration/BDD/*.feature",
     setupNodeEvents,
   },
 });
